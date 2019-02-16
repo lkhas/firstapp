@@ -1,0 +1,171 @@
+{% extends "pmkvybase.html" %}
+{% block content %}
+<link href="static/css/pmkvyactivities.css" rel="stylesheet">
+<style>
+#customers th
+{
+    background-color: #fff;
+}
+.w3ls-inner-banner
+{
+	background:url('static/images/training.jpg') no-repeat 0px 0px;
+	background-size:cover;
+	min-height:300px;
+}
+.w3ls-inner-banner h2 {
+    color: #fff;
+    font-size: 35px;
+    padding-top: 160px;
+    text-transform: uppercase;
+	text-align:right;
+}
+.w3ls-inner-banner label {
+	width: 100px;
+	height: 2px;
+	background: #fff;
+	display: block;
+	float: right;
+	margin-top:8px;
+}
+</style>
+
+
+<!-- Header - set the background image for the header in the line below -->
+<div class="w3ls-inner-banner">
+    <div class="container">
+        <h2>AL Community Activities</h2>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- End Header Background image -->
+
+
+
+<!-- Page content - Filter AL Community Activities -->
+
+<div class="page">
+    <div class="container">
+    <div class="container-fluid">
+
+
+        <div class="row">
+
+            <div class="panel panel-primary filterable">
+                 <!--Button for Export ToCSV -->
+
+        <div id="export_to_csv">
+            <pre>
+                                                                                                                                 <input type="button" class="button" value="CSV" id="csv"></pre>
+        </div>
+
+        <!--End Button for Export ToCSV -->
+               <div class="panel-heading">
+                    <h3 class="panel-title">Community Activities</h3>
+                    <div class="pull-right">
+                      <button class="btn1 btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Filter</button>
+                    </div>
+                </div>
+            <div style="overflow-x:auto;">
+                <form action="{{ url_for('image') }}" type="post">
+                <table class="table" id="customers" >
+                   <thead>
+                     <tr class="filters"><br/>
+                        <!--<input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" disabled /><br/>-->
+                        <th  style="width:3%"><input type="text" class="form-control" placeholder="image" disabled></th>
+                         <th  style="width:3%"><input type="text" class="form-control" placeholder="Activity Type" disabled></th>
+                        <th style="width:3%"><input type="text" class="form-control" placeholder="Center" disabled></th>
+                        <th style="width:3%"><input type="text" class="form-control" placeholder="Role" disabled></th>
+                        <th style="width:3%"><input type="text" class="form-control" placeholder="Activities Completed" disabled></th>
+                        <th style="width:3%"><input type="text" class="form-control" placeholder="experience_challenge" disabled></th>
+
+                        <th style="width:3%"><input type="text" class="form-control" placeholder="challenge_handle_situation" disabled></th>
+                        <th style="width:15%"><input type="text" class="form-control" placeholder="Conducted By" disabled></th>
+                        <th style="width:3%"><input type="text" class="form-control" placeholder="could_improved" disabled></th>
+                        <th style="width:3%"><input type="text" class="form-control" placeholder="curriculum" disabled></th>
+                        <th style="width:3%"><input type="text" class="form-control" placeholder="end_date" disabled></th>
+                        <th style="width:3%"><input type="text" class="form-control" placeholder="end_time" disabled></th>
+                        <th style="width:3%"><input type="text" class="form-control" placeholder="feedback" disabled></th>
+                        <th class="b"><input type="text" class="form-control" placeholder="hashtag" disabled></th>
+                        <th style="width:3%"><input type="text" class="form-control" placeholder="logdate" disabled></th>
+                        <th style="width:3%"><input type="text" class="form-control" placeholder="logtime" disabled></th>
+                        <th style="width:3%"><input type="text" class="form-control" placeholder="student_performance" disabled></th>
+                        <th style="width:3%"><input type="text" class="form-control" placeholder="start_date" disabled></th>
+                        <th style="width:3%"><input type="text" class="form-control" placeholder="start_time" disabled></th>
+                        <th style="width:3%"><input type="text" class="form-control" placeholder="student_objectives" disabled></th>
+                        <th style="width:3%"><input type="text" class="form-control" placeholder="todays_objective" disabled></th>
+                        <th style="width:3%"><input type="text" class="form-control" placeholder="topics_covered" disabled></th>
+                        <!--<th style="width:3%"><input type="text" class="form-control" placeholder="upload" disabled></th>-->
+                        <th style="width:3%"><input type="text" class="form-control" placeholder="went_well" disabled></th>
+                         <th  style="width:3%"><input type="text" class="form-control" placeholder="image" disabled></th>
+                    </tr>
+                   </thead>
+                   <tbody>
+                   {% for row in rows %}
+                    <tr>
+                       {% for d in row %}
+                           <td>{{ d }}</td>
+                       {% endfor %}
+                        <td><button type="submit" value="submit" name="d" class="btn btn-outline btn-primary" ><i class="icon wb-plus" aria-hidden="true"></i>View</button></td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    </div>
+          <input type="text" name="code" id="code">
+<input type="text" name="img1" id="img1">
+<input type="text" name="img2" id="img2">
+<input type="text" name="img3" id="img3">
+        </form>
+</div>
+</div>
+
+
+<!-- End Page content - Filter AL Community Activities -->
+
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="static/js/pmkvyactivities.js"></script>
+<script>
+$(document).ready(function() {
+    $('td:nth-child(1),th:nth-child(1)').hide();
+    $("#customers tbody tr").each(function( index ) {
+
+        var $this = $(this);
+        if (($this.children("td:first").text() == "[,,]") || ($this.children("td:first").text() == "[no upload,no upload,no upload]")) {
+           $this.find("button").prop("disabled", true);
+        }
+
+    });
+
+});
+    $('.btn').click(function () {
+    var id = $(this).closest("tr").find('td:eq(0)').text();
+    alert(id)
+    var result = id.substring(1, id.length-1);
+    document.getElementById("code").value = result;
+    var s = document.getElementById("code").value
+            var res = s.split(",");
+            var len = res.length;
+            alert(len)
+            for (j = 0; j < res.length; j++)
+            {
+                document.getElementById("img1").value =res[0]
+                document.getElementById("img2").value =res[1]
+                document.getElementById("img3").value =res[2]
+
+                //alert(res[0]);
+                //alert(res[1]);
+                //alert(res[2]);
+                //alert(data[i][0])
+            }
+
+    $.ajax({
+
+    });
+});
+</script>
+{% endblock content %}

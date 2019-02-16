@@ -1,0 +1,48 @@
+{% extends "pmkvybase.html" %}
+{% block content %}
+<style>
+.w3ls-inner-banner
+{
+	background:url('static/images/guptapada_cover-2.jpg') no-repeat 0px 0px;
+	background-size:cover;
+	min-height:300px;
+}
+.w3ls-inner-banner h2 {
+    color: #fff;
+    font-size: 35px;
+    padding-top: 160px;
+    text-transform: uppercase;
+	text-align:right;
+}
+.w3ls-inner-banner label {
+	width: 100px;
+	height: 2px;
+	background: #fff;
+	display: block;
+	float: right;
+	margin-top:8px;
+}
+</style>
+<!-- Header - set the background image for the header in the line below -->
+<div class="w3ls-inner-banner">
+    <div class="container">
+        <h2>Village Based Activities</h2>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- End Header Background image -->
+<div class="page" style="back-ground:white">
+    <div class="container">
+    <div class="container-fluid">
+        <div id="imageHolder" style="height: 600px; margin: auto; min-width: 310px; max-width: 600px"></div>
+    </div>
+    </div>
+</div>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  document.getElementById("imageHolder").innerHTML="<img src='static/images/myplot.png' alt=''/>";
+});
+
+</script>
+{% endblock content %}

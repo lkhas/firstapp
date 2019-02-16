@@ -1,0 +1,65 @@
+<!--Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Login</title>
+<link href="static/css/login.css" rel="stylesheet" type="text/css" media="all"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Transparent Login Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+<!--web-fonts-->
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css' />
+<!--web-fonts-->
+	<style>
+		body{
+		 background:url('static/imageslog/bg2.jpg') no-repeat 62% 90%;
+    background-size: cover;
+    text-align: center;
+	font-family: 'Open Sans', sans-serif;
+		}
+		.sub-main-w3 input[type="submit"] {
+	background: url('static/imageslog/arrow.png') no-repeat 30% 45%;
+    height: 67px;
+    outline: none;
+    margin-top: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #fff;
+    width: 67px;
+}
+
+	</style>
+</head>
+
+<body background="static/imageslog/bg2.jpg">
+<div class="imgg">
+<!--header-->
+	<div class="header-w3l">
+		<h1>  Login </h1>
+	</div>
+<!--//header-->
+
+<!--main-->
+<div class="main-content-agile">
+	<div class="sub-main-w3">
+		<form action="{{ url_for('success') }}" method="post">
+			<input placeholder="Username or E-mail" name="Name" class="user" type="text" required=""><br>
+			<input  placeholder="Password" name="Password" class="pass" type="password" required=""><br>
+			<input type="submit" value="">
+		</form>
+	</div>
+</div>
+<!--//main-->
+
+<!--footer-->
+<div class="footer">
+	<p> <a href="http://w3layouts.com">W3layouts</a></p>
+</div>
+<!--//footer-->
+</div>
+</body>
+</html>
